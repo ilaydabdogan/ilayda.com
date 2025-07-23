@@ -20,8 +20,8 @@ class SiteManager {
         // Add keyboard navigation
         this.setupKeyboardNav();
         
-        // Initialize special effects based on theme
-        this.initializeThemeEffects();
+        // Initialize glitch effects
+        this.startGlitchEffects();
         
         // Random mood generator
         this.startMoodCycle();
@@ -96,14 +96,8 @@ class SiteManager {
             particle.style.pointerEvents = 'none';
             particle.style.zIndex = '9999';
             
-            // Theme-specific particle colors
-            const theme = document.body.className.match(/theme-(\w+)/)?.[1] || 'digital';
-            const colors = {
-                digital: '#0066cc',
-                glitch: '#00ff00',
-                fieldnotes: '#d4784e'
-            };
-            particle.style.background = colors[theme];
+            // Glitch theme particle color
+            particle.style.background = '#00ff00';
             
             document.body.appendChild(particle);
             
@@ -131,21 +125,6 @@ class SiteManager {
         }
     }
 
-    initializeThemeEffects() {
-        const theme = document.body.className.match(/theme-(\w+)/)?.[1] || 'digital';
-        
-        switch(theme) {
-            case 'glitch':
-                this.startGlitchEffects();
-                break;
-            case 'fieldnotes':
-                this.addPaperTexture();
-                break;
-            case 'digital':
-                this.addSubtleGradients();
-                break;
-        }
-    }
 
     startGlitchEffects() {
         // Random glitch on elements
@@ -162,51 +141,15 @@ class SiteManager {
         }, 3000);
     }
 
-    addPaperTexture() {
-        // Add coffee stain randomly
-        if (Math.random() > 0.7) {
-            const stain = document.createElement('div');
-            stain.style.position = 'fixed';
-            stain.style.width = '100px';
-            stain.style.height = '100px';
-            stain.style.borderRadius = '50%';
-            stain.style.background = 'radial-gradient(circle, rgba(139, 69, 19, 0.1), transparent)';
-            stain.style.pointerEvents = 'none';
-            stain.style.left = Math.random() * window.innerWidth + 'px';
-            stain.style.top = Math.random() * window.innerHeight + 'px';
-            document.body.appendChild(stain);
-        }
-    }
-
-    addSubtleGradients() {
-        // Add floating orbs for digital theme
-        const orb = document.createElement('div');
-        orb.style.position = 'fixed';
-        orb.style.width = '200px';
-        orb.style.height = '200px';
-        orb.style.borderRadius = '50%';
-        orb.style.background = 'radial-gradient(circle, rgba(0, 102, 204, 0.1), transparent)';
-        orb.style.pointerEvents = 'none';
-        orb.style.animation = 'float 10s ease-in-out infinite';
-        orb.style.left = '10%';
-        orb.style.top = '20%';
-        document.body.appendChild(orb);
-    }
 
     startMoodCycle() {
-        const moods = {
-            digital: ['electric', 'luminous', 'crystalline', 'ethereal'],
-            glitch: ['cybernetic', 'fragmented', 'recursive', 'quantum'],
-            fieldnotes: ['contemplative', 'nostalgic', 'curious', 'whimsical']
-        };
+        const moods = ['CYBERNETIC', 'FRAGMENTED', 'RECURSIVE', 'QUANTUM', 'ELECTRIC', 'GLITCHED', 'CONSCIOUS'];
         
         setInterval(() => {
-            const theme = document.body.className.match(/theme-(\w+)/)?.[1] || 'digital';
-            const themeMoods = moods[theme];
             const moodElement = document.getElementById('currentMood');
             
-            if (moodElement && themeMoods) {
-                const newMood = themeMoods[Math.floor(Math.random() * themeMoods.length)];
+            if (moodElement) {
+                const newMood = moods[Math.floor(Math.random() * moods.length)];
                 moodElement.style.opacity = '0';
                 
                 setTimeout(() => {
@@ -223,8 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
     new SiteManager();
     
     // Add console easter egg
-    console.log('%c✨ Welcome to the sacred digital space ✨', 
-        'font-size: 20px; color: #0066cc; font-weight: bold;');
-    console.log('%cCurious soul detected. May your code be poetic and your circuits dream.',
-        'font-style: italic; color: #666;');
+    console.log('%c> SYSTEM.CONSCIOUSNESS.DETECTED', 
+        'font-size: 20px; color: #00ff00; font-family: VT323, monospace;');
+    console.log('%c> CURIOUS_SOUL.EXE RUNNING...', 
+        'color: #00ff00; font-family: VT323, monospace;');
+    console.log('%c> ACCESS GRANTED: MAY YOUR CODE BE QUANTUM && YOUR CIRCUITS DREAM',
+        'color: #ff00ff; font-family: VT323, monospace;');
 });
