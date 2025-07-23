@@ -1,0 +1,375 @@
+/* Project page specific styles */
+
+.breadcrumb {
+    margin-bottom: 2rem;
+}
+
+.breadcrumb a {
+    color: #718096;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #2b6cb0;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.project-meta .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #718096;
+    background: rgba(237, 242, 247, 0.8);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+}
+
+.project-meta .tags {
+    font-size: 0.9rem;
+    color: #2b6cb0;
+    background: rgba(66, 153, 225, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+}
+
+/* Project content */
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-content section {
+    margin-bottom: 3rem;
+}
+
+.project-content h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(226, 232, 240, 0.6);
+    padding-bottom: 0.5rem;
+}
+
+.project-content h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.project-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+/* Poetic notes */
+.poetic-note {
+    background: linear-gradient(135deg, rgba(237, 242, 247, 0.8) 0%, rgba(226, 232, 240, 0.6) 100%);
+    border-left: 4px solid #2b6cb0;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2d3748;
+}
+
+/* Materials list */
+.materials {
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+    margin-bottom: 2rem;
+}
+
+.materials li {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.materials li:last-child {
+    margin-bottom: 0;
+}
+
+/* Wiring notes */
+.wiring-note {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    margin-bottom: 2rem;
+}
+
+.wiring-note ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.wiring-note li {
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #718096;
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.4);
+}
+
+/* Code sections */
+.code {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    margin-bottom: 2rem;
+}
+
+.code-explanation {
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+}
+
+.code-explanation h3 {
+    margin-top: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.code-explanation p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.code-explanation p:last-child {
+    margin-bottom: 0;
+}
+
+/* Reflection section */
+.reflection {
+    background: linear-gradient(135deg, rgba(237, 242, 247, 0.6) 0%, rgba(226, 232, 240, 0.4) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+}
+
+.reflection p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #2d3748;
+}
+
+/* Next steps */
+.next-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+.next-steps li {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+
+.next-steps li:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(4px);
+    border-color: rgba(66, 153, 225, 0.3);
+}
+
+/* Project footer */
+.project-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.project-footer p {
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.project-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.project-nav a {
+    color: #2b6cb0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.project-nav a:hover {
+    color: #1a365d;
+}
+
+/* Responsive design for project pages */
+@media (max-width: 768px) {
+    .project-title {
+        font-size: 2rem;
+    }
+    
+    .project-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .project-content {
+        padding: 0 1rem;
+    }
+    
+    .code {
+        padding: 1.5rem;
+    }
+    
+    .reflection {
+        padding: 1.5rem;
+    }
+    
+    .project-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+} 
+
+/* Video section */
+.video-demo {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin: 1.5rem 0;
+    background: rgba(26, 32, 44, 0.95);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #e2e8f0;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Code patterns section */
+.code-patterns {
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+}
+
+.code-patterns h3 {
+    margin-top: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.code-patterns ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.code-patterns li {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(226, 232, 240, 0.4);
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+}
+
+.code-patterns li:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(4px);
+    border-color: rgba(66, 153, 225, 0.3);
+}
+
+.code-patterns li strong {
+    color: #2d3748;
+    margin-right: 0.5rem;
+}
+
+/* Enhanced wiring notes for more complex projects */
+.wiring-note ul ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+.wiring-note ul ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+} 

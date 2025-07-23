@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Symphony — RGB LED + OLED + Sound | ilayda.com</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="breadcrumb">
+                <a href="../../">← Back to ilayda.com</a>
+            </nav>
+            <h1 class="project-title">Color Symphony</h1>
+            <p class="project-subtitle">A multimedia experience with RGB LED, OLED display, and sound — where light meets music</p>
+            <div class="project-meta">
+                <span class="date">December 2024</span>
+                <span class="tags">Raspberry Pi, Python, GPIO, RGB LED, OLED, Sound</span>
+            </div>
+        </header>
+
+        <main class="project-content">
+            <section class="project-intro">
+                <h2>The Symphony Begins</h2>
+                <p>What happens when we combine light, sound, and interactivity? This project evolved from a simple blinking LED into a full multimedia experience — a symphony of color and sound, with patterns that tell stories through light and music.</p>
+                
+                <blockquote class="poetic-note">
+                    "In the space between light and sound,
+                    where colors dance with musical notes,
+                    we find a new language of expression —
+                    a symphony that speaks to both eyes and ears."
+                </blockquote>
+            </section>
+
+            <section class="video-demo">
+                <h2>🎬 See It in Action</h2>
+                <div class="video-container">
+                    <!-- Add your video element here -->
+                    <p class="video-placeholder">Video coming soon...</p>
+                </div>
+            </section>
+
+            <section class="hardware">
+                <h2>🌿 Components</h2>
+                <ul class="materials">
+                    <li>Raspberry Pi (any model with GPIO pins)</li>
+                    <li>RGB LED (common cathode)</li>
+                    <li>SSD1306 OLED Display (128x64, I2C)</li>
+                    <li>Passive Buzzer</li>
+                    <li>Push Button</li>
+                    <li>3 x 220Ω resistors (for RGB LED)</li>
+                    <li>Breadboard and jumper wires</li>
+                </ul>
+
+                <h3>Wiring Diagram</h3>
+                <div class="wiring-note">
+                    <p><strong>Connections:</strong></p>
+                    <ul>
+                        <li>RGB LED:</li>
+                        <ul>
+                            <li>Red → 220Ω → GPIO 17</li>
+                            <li>Green → 220Ω → GPIO 27</li>
+                            <li>Blue → 220Ω → GPIO 22</li>
+                            <li>Common Cathode → GND</li>
+                        </ul>
+                        <li>OLED Display (I2C):</li>
+                        <ul>
+                            <li>SDA → GPIO 2 (SDA)</li>
+                            <li>SCL → GPIO 3 (SCL)</li>
+                            <li>VCC → 3.3V</li>
+                            <li>GND → GND</li>
+                        </ul>
+                        <li>Buzzer:</li>
+                        <ul>
+                            <li>Positive → GPIO 18</li>
+                            <li>Negative → GND</li>
+                        </ul>
+                        <li>Button:</li>
+                        <ul>
+                            <li>One leg → GPIO 23</li>
+                            <li>Other leg → GND</li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="code">
+                <h2>💻 The Code</h2>
+                <p>Here's the Python script that orchestrates our color symphony:</p>
+                
+                <pre><code>#!/usr/bin/env python3
+"""
+🎨 Color Symphony with OLED Display
+Interactive RGB LED + Buzzer + OLED show!
+"""
+
+import RPi.GPIO as GPIO
+import time
+import random
+from luma.core.interface.serial import i2c
+from luma.oled.device import ssd1306
+from luma.core.render import canvas
+from PIL import ImageFont
+
+# GPIO Pin Definitions
+RED_PIN = 17
+GREEN_PIN = 27
+BLUE_PIN = 22
+BUZZER_PIN = 18
+BUTTON_PIN = 23
+
+# ... rest of your code ...</code></pre>
+
+                <div class="code-explanation">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Color Patterns:</strong> Six unique patterns (Sunrise, Ocean Wave, Cherry Blossom, Lightning, Fireworks, Love for Boogie) each with their own colors and musical notes</li>
+                        <li><strong>OLED Display:</strong> Shows pattern information, progress bar, and animations</li>
+                        <li><strong>Interactive:</strong> Button press cycles through patterns</li>
+                        <li><strong>Musical Notes:</strong> Each color change is accompanied by a corresponding musical note</li>
+                        <li><strong>Smooth Transitions:</strong> Gentle fading between colors and patterns</li>
+                    </ul>
+                </div>
+
+                <div class="code-patterns">
+                    <h3>Color Patterns</h3>
+                    <p>Each pattern tells a different story:</p>
+                    <ul>
+                        <li>🌅 <strong>Sunrise:</strong> Warm colors rising from red to yellow, with ascending notes</li>
+                        <li>🌊 <strong>Ocean Wave:</strong> Blues and cyans flowing like water</li>
+                        <li>🌸 <strong>Cherry Blossom:</strong> Gentle pinks and purples dancing in spring</li>
+                        <li>⚡ <strong>Lightning:</strong> Bright flashes of white and blue</li>
+                        <li>🎆 <strong>Fireworks:</strong> Bursts of vibrant colors across the spectrum</li>
+                        <li>💕 <strong>Love for Boogie:</strong> Warm pinks pulsing with rhythm</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="reflection">
+                <h2>✨ Reflection</h2>
+                <p>This project taught me about the poetry of interaction — how light, sound, and touch can come together to create something more than the sum of their parts. The OLED display adds another layer of storytelling, making the invisible patterns visible.</p>
+                
+                <p>I love how each pattern has its own personality. The Sunrise pattern feels hopeful and warm, while Ocean Wave has a calming, meditative quality. Cherry Blossom captures the delicate beauty of spring, and Lightning brings dramatic energy.</p>
+                
+                <blockquote class="poetic-note">
+                    "Each pattern is a small story,
+                    told in the language of light and sound.
+                    The LED breathes with color,
+                    the buzzer sings with emotion,
+                    and the OLED screen narrates our journey."
+                </blockquote>
+                
+                <p>What started as a simple LED experiment has grown into a exploration of how we can use technology to create emotional experiences. It's not just about making lights blink or playing sounds — it's about creating moments of beauty and wonder.</p>
+            </section>
+
+            <section class="next-steps">
+                <h2>🚀 Future Ideas</h2>
+                <ul>
+                    <li>Add a light sensor to automatically adjust brightness</li>
+                    <li>Create patterns that respond to ambient sound</li>
+                    <li>Add more complex musical harmonies</li>
+                    <li>Experiment with different display animations</li>
+                    <li>Create a web interface for designing custom patterns</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="project-footer">
+            <p>Made with ❤️ and a symphony of colors</p>
+            <nav class="project-nav">
+                <a href="../../projects/">← All Projects</a>
+                <a href="../../">← Home</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html> 
