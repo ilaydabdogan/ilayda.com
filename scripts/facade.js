@@ -149,9 +149,25 @@ class FacadeManager {
         ];
         
         let index = 0;
+        let currentText = misspellings[0];
+        
         const nameGlitchInterval = setInterval(() => {
             if (index < misspellings.length) {
-                nameElement.textContent = misspellings[index];
+                // Base text for this cycle
+                currentText = misspellings[index];
+                
+                // Add glitch characters randomly
+                if (Math.random() > 0.3 && index < misspellings.length - 1) {
+                    const glitchedVersion = this.partialGlitch(currentText);
+                    nameElement.textContent = glitchedVersion;
+                    
+                    // Quick flash back to intended misspelling
+                    setTimeout(() => {
+                        nameElement.textContent = currentText;
+                    }, 100);
+                } else {
+                    nameElement.textContent = currentText;
+                }
                 
                 // Subtle color shift as it gets closer to truth
                 if (index < misspellings.length - 3) {
@@ -176,6 +192,17 @@ class FacadeManager {
                 clearInterval(nameGlitchInterval);
             }
         }, 400); // Slower pace - 400ms between changes
+    }
+    
+    partialGlitch(text) {
+        const glitchChars = '?!@#$%^&*_+={}[]|<>/~';
+        return text.split('').map(char => {
+            // Only glitch some characters, keep structure recognizable
+            if (Math.random() > 0.7 && char !== ' ') {
+                return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+            }
+            return char;
+        }).join('');
     }
 
     glitchString(str) {
