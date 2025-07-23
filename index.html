@@ -24,9 +24,13 @@
     <div class="facade-layer" id="facadeLayer">
         <div class="professional-container">
             <div class="profile-section">
-                <div class="profile-image">
-                    <!-- Replace with: <img src="path-to-your-photo.jpg" alt="İlayda Büyükdoğan"> -->
-                    <span>IB</span>
+                <div class="profile-image" id="profileImage">
+                    <!-- Corporate facade photo -->
+                    <img src="images/corporate-photo.jpg" alt="İlayda Büyükdoğan - Professional" class="facade-photo" id="facadePhoto">
+                    <!-- True self photo (hidden initially) -->
+                    <img src="images/childhood-photo.jpg" alt="True Self" class="true-self-photo" id="trueSelfPhoto" style="display: none;">
+                    <!-- Fallback initials if images not found -->
+                    <span class="initials-fallback">IB</span>
                 </div>
                 <h1 class="professional-name">İlayda Büyükdoğan</h1>
                 <p class="professional-title">Tech Entrepreneur & Creative Technologist</p>

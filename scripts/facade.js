@@ -42,6 +42,22 @@ class FacadeManager {
             clearInterval(this.flickerInterval);
         }
 
+        // Start photo glitch effect
+        const profileImage = document.getElementById('profileImage');
+        const trueSelfPhoto = document.getElementById('trueSelfPhoto');
+        
+        if (profileImage) {
+            profileImage.classList.add('glitching');
+            
+            // Show true self photo during glitch
+            setTimeout(() => {
+                if (trueSelfPhoto) {
+                    trueSelfPhoto.style.display = 'block';
+                }
+                profileImage.classList.add('reveal-true-self');
+            }, 800);
+        }
+
         // Add glitching class for animation
         this.facadeLayer.classList.add('glitching');
 
@@ -119,5 +135,23 @@ class FacadeManager {
 
 // Initialize facade manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Handle image loading errors
+    const facadePhoto = document.getElementById('facadePhoto');
+    const trueSelfPhoto = document.getElementById('trueSelfPhoto');
+    const fallback = document.querySelector('.initials-fallback');
+    
+    if (facadePhoto) {
+        facadePhoto.onerror = function() {
+            this.style.display = 'none';
+            if (fallback) fallback.style.display = 'flex';
+        };
+    }
+    
+    if (trueSelfPhoto) {
+        trueSelfPhoto.onerror = function() {
+            console.log('True self photo not found - using fallback');
+        };
+    }
+    
     new FacadeManager();
 });
