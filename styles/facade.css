@@ -392,6 +392,30 @@
     text-align: center;
 }
 
+.newsletter-signup.newsletter-top {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    background: #f0f9ff;
+    border: 2px solid #0ea5e9;
+    position: relative;
+}
+
+.newsletter-top::before {
+    content: 'LIMITED TIME: Early access to our AI Agent marketplace';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0ea5e9;
+    color: white;
+    padding: 0.2rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .newsletter-heading {
     font-size: 1.3rem;
     font-weight: 600;
