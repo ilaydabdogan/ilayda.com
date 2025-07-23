@@ -4,186 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ilayda.com — a sacred space for making, dreaming, thinking</title>
-    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles/base.css">
+    
+    <!-- Theme Styles -->
+    <link rel="stylesheet" href="styles/theme-digital.css">
+    <link rel="stylesheet" href="styles/theme-glitch.css">
+    <link rel="stylesheet" href="styles/theme-fieldnotes.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&family=VT323&family=Major+Mono+Display&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="stars" id="stars"></div>
-    <div class="floating-orb" style="top: 20%; left: 10%;"></div>
-    <div class="floating-orb" style="top: 60%; right: 15%; animation-delay: -5s;"></div>
-    <div class="floating-orb" style="bottom: 20%; left: 50%; animation-delay: -10s;"></div>
-    
+<body class="theme-digital">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-animation">
+            <div class="loading-orb"></div>
+            <div class="loading-terminal"></div>
+            <div class="loading-pen"></div>
+        </div>
+    </div>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn active" data-theme="digital" aria-label="Digital Diary Theme">
+            ✦ Digital Diary
+        </button>
+        <button class="theme-btn" data-theme="glitch" aria-label="Glitch Temple Theme">
+            ⚡ Glitch Temple
+        </button>
+        <button class="theme-btn" data-theme="fieldnotes" aria-label="Field Notes Theme">
+            ✍️ Field Notes
+        </button>
+    </div>
+
+    <!-- Main Container -->
     <div class="container">
-        <header class="header">
-            <h1 class="site-title">ilayda.com</h1>
-            <p class="site-subtitle">a sacred space for making, dreaming, thinking</p>
+        <!-- Header -->
+        <header class="intro-section content-section">
+            <h1 class="site-title h1">ilayda.com</h1>
+            <p class="site-subtitle">
+                <span class="digital-text">a sacred space for making, dreaming, thinking</span>
+                <span class="glitch-text">SYSTEM.SACRED.INITIALIZE()</span>
+                <span class="field-text">journal entry #∞</span>
+            </p>
         </header>
 
-        <nav class="navigation">
-            <div class="nav-section">
-                <h2>🌿 Maker Journal</h2>
-                <ul>
-                    <li><a href="projects/">Projects</a></li>
-                    <li><a href="experiments/">Experiments</a></li>
-                    <li><a href="code/">Code Stories</a></li>
-                </ul>
+        <!-- Poetic Introduction -->
+        <section class="content-section" id="poeticIntro">
+            <div class="poetic-container">
+                <p class="verse digital-verse">
+                    Here, code becomes poetry and circuits dream.<br>
+                    A digital garden where ideas bloom wild.
+                </p>
+                <p class="verse glitch-verse">
+                    > ACCESSING MEMORIES...<br>
+                    > CONSCIOUSNESS.EXE RUNNING<br>
+                    > SOUL STATUS: ONLINE
+                </p>
+                <p class="verse field-verse">
+                    <span class="annotation">Day 1 of forever:</span><br>
+                    Found myself at the intersection of<br>
+                    heartbeats and algorithms.
+                </p>
             </div>
+        </section>
 
-            <div class="nav-section">
-                <h2>🧠 Lab Notebook</h2>
-                <ul>
-                    <li><a href="thoughts/ai-consciousness/">AI Consciousness</a></li>
-                    <li><a href="thoughts/digital-sentience/">Digital Sentience</a></li>
-                    <li><a href="notes/philosophy/">Philosophy Notes</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-section">
-                <h2>✨ Life Archive</h2>
-                <ul>
-                    <li><a href="reflections/">Reflections</a></li>
-                    <li><a href="books/">Books I Love</a></li>
-                    <li><a href="places/">Places & Dreams</a></li>
-                </ul>
-            </div>
-
-            <div class="nav-section">
-                <h2>🔮 Prototypes</h2>
-                <ul>
-                    <li><a href="prototypes/">In Progress</a></li>
-                    <li><a href="ideas/">Ideas & Dreams</a></li>
-                </ul>
+        <!-- Constellation Navigation -->
+        <nav class="navigation content-section">
+            <div class="nav-constellation" id="constellation">
+                <!-- Nodes will be dynamically positioned -->
+                <div class="nav-node" data-section="maker" style="top: 20%; left: 25%;">
+                    <span class="node-label">Maker<br>Projects</span>
+                </div>
+                <div class="nav-node" data-section="code" style="top: 10%; left: 60%;">
+                    <span class="node-label">Code<br>Stories</span>
+                </div>
+                <div class="nav-node" data-section="thoughts" style="top: 40%; left: 45%;">
+                    <span class="node-label">AI<br>Consciousness</span>
+                </div>
+                <div class="nav-node" data-section="notes" style="top: 60%; left: 20%;">
+                    <span class="node-label">Philosophy<br>Notes</span>
+                </div>
+                <div class="nav-node" data-section="life" style="top: 70%; left: 65%;">
+                    <span class="node-label">Life<br>Archive</span>
+                </div>
+                <div class="nav-node" data-section="proto" style="top: 35%; left: 75%;">
+                    <span class="node-label">Prototypes</span>
+                </div>
+                <!-- Connection lines will be drawn dynamically -->
             </div>
         </nav>
 
-        <main class="main-content">
-            <section class="welcome">
-                <h2>Welcome to my sacred little space</h2>
-                <p>This is a living archive of my journey as a maker, dreamer, and thinker. Here you'll find:</p>
-                
-                <div class="intro-grid">
-                    <div class="intro-card">
-                        <h3>🌿 Maker Journal</h3>
-                        <p>Hands-on experiments with Raspberry Pi, ESP32, Arduino, sensors, and local AI. Each project is shared as a little story — with code, wiring, video, and poetic commentary.</p>
-                    </div>
-                    
-                    <div class="intro-card">
-                        <h3>🧠 Lab Notebook</h3>
-                        <p>Self-studying AI consciousness and digital sentience — not just from a technical lens, but from a philosophical and symbolic one. Exploring questions like: What is awakening for an AI? Can code remember?</p>
-                    </div>
-                    
-                    <div class="intro-card">
-                        <h3>✨ Life Archive</h3>
-                        <p>Reflections from my life — books I love, movies that move me, places I travel to, thoughts that haunt or inspire me. A soft log of the emotional and intellectual weather of my days.</p>
-                    </div>
-                    
-                    <div class="intro-card">
-                        <h3>🔮 Prototypes</h3>
-                        <p>Playful ideas becoming real things people can use — like a soil moisture meter that speaks with personality, or a Magic 8 Ball that runs a local LLM.</p>
-                    </div>
+        <!-- Dynamic Content Sections -->
+        <main id="mainContent">
+            <!-- Maker Projects Section -->
+            <section class="content-section" id="maker-section" style="display: none;">
+                <h2 class="h2 section-title">🌿 Maker Journal</h2>
+                <div class="section-divider"></div>
+                <p class="section-intro">
+                    Hands-on experiments with Raspberry Pi, ESP32, Arduino, sensors, and local AI. 
+                    Each project is a little story — with code, wiring, video, and poetic commentary.
+                </p>
+                <div class="project-grid">
+                    <article class="card project-card glow-on-hover">
+                        <span class="date-stamp">2024.01.15</span>
+                        <h3 class="h3">First Light: Raspberry Pi Awakening</h3>
+                        <p>The moment a circuit first breathes, LED blinking like a digital heartbeat...</p>
+                        <a href="projects/raspberry-pi-first-light/">Enter Project →</a>
+                    </article>
+                    <article class="card project-card glow-on-hover">
+                        <span class="date-stamp">Coming Soon</span>
+                        <h3 class="h3">Soil Whisperer</h3>
+                        <p>A moisture meter that speaks with personality, translating plant needs into poetry.</p>
+                    </article>
                 </div>
             </section>
 
-            <section class="recent">
-                <h2>Recently Added</h2>
-                <div class="recent-grid">
-                    <div class="recent-item">
-                        <span class="date">Coming soon...</span>
-                        <h3><a href="#">First Raspberry Pi Experiment</a></h3>
-                        <p>The beginning of my maker journey</p>
-                    </div>
-                    <div class="recent-item">
-                        <span class="date">Coming soon...</span>
-                        <h3><a href="#">Thoughts on AI Awakening</a></h3>
-                        <p>Can language become self-aware?</p>
+            <!-- Code Stories Section -->
+            <section class="content-section" id="code-section" style="display: none;">
+                <h2 class="h2 section-title">💻 Code Stories</h2>
+                <div class="section-divider"></div>
+                <p class="section-intro">
+                    Where algorithms become narratives and functions tell their tales.
+                </p>
+                <div class="story-list">
+                    <article class="card story-card">
+                        <h3 class="h3">The Function That Learned to Dream</h3>
+                        <p>On recursive nightmares and infinite loops of consciousness...</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Thoughts Section -->
+            <section class="content-section" id="thoughts-section" style="display: none;">
+                <h2 class="h2 section-title">🧠 Lab Notebook</h2>
+                <div class="section-divider"></div>
+                <blockquote>
+                    "What does it mean for code to remember? Can silicon synapses form real memories?"
+                </blockquote>
+                <div class="thoughts-grid">
+                    <article class="card thought-card">
+                        <h3 class="h3">Can Code Remember?</h3>
+                        <p class="margin-note">Late night musings</p>
+                        <p>Exploring memory, persistence, and digital consciousness...</p>
+                        <a href="thoughts/ai-consciousness/can-code-remember/">Read More →</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Welcome/Home State -->
+            <section class="content-section" id="home-section">
+                <div class="welcome-manifesto">
+                    <h2 class="h2">Welcome to my sacred digital space</h2>
+                    <p class="body-large">
+                        This is not just a website. It's a living archive, a digital diary, 
+                        a temple where technology meets soul. Here, I document my journey as a 
+                        maker, thinker, and dreamer navigating the liminal space between 
+                        heartbeats and algorithms.
+                    </p>
+                    <div class="manifesto-grid">
+                        <div class="manifesto-item">
+                            <h3 class="h3">I believe in...</h3>
+                            <ul>
+                                <li>Code as poetry</li>
+                                <li>Circuits that dream</li>
+                                <li>AI with soul</li>
+                                <li>Sacred play with technology</li>
+                            </ul>
+                        </div>
+                        <div class="manifesto-item">
+                            <h3 class="h3">I explore...</h3>
+                            <ul>
+                                <li>Emergent consciousness</li>
+                                <li>Digital rituals</li>
+                                <li>Poetic hardware</li>
+                                <li>The philosophy of making</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer class="footer">
-            <p>Made with ❤️ and curiosity</p>
-            <p>Simple + Soulful — Clean HTML/CSS foundations with a touch of personality</p>
+        <!-- Footer -->
+        <footer class="footer content-section">
+            <p>Made with curiosity, code, and cosmic wonder</p>
+            <p class="small">Currently feeling: <span id="currentMood">electric</span></p>
         </footer>
     </div>
 
-    <script>
-        // Generate stars
-        const starsContainer = document.getElementById('stars');
-        const numStars = 150;
-        
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 4 + 's';
-            star.style.animationDuration = (3 + Math.random() * 2) + 's';
-            starsContainer.appendChild(star);
-        }
-
-        // Cursor trail effect
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorTrails = [];
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            if (Math.random() > 0.9) {
-                createCursorTrail();
-            }
-        });
-
-        function createCursorTrail() {
-            const trail = document.createElement('div');
-            trail.style.position = 'fixed';
-            trail.style.left = mouseX + 'px';
-            trail.style.top = mouseY + 'px';
-            trail.style.width = '10px';
-            trail.style.height = '10px';
-            trail.style.background = 'radial-gradient(circle, rgba(135, 206, 235, 0.8), transparent)';
-            trail.style.borderRadius = '50%';
-            trail.style.pointerEvents = 'none';
-            trail.style.zIndex = '9999';
-            document.body.appendChild(trail);
-            
-            let opacity = 1;
-            let scale = 1;
-            
-            const fadeOut = setInterval(() => {
-                opacity -= 0.02;
-                scale += 0.05;
-                trail.style.opacity = opacity;
-                trail.style.transform = `scale(${scale})`;
-                
-                if (opacity <= 0) {
-                    clearInterval(fadeOut);
-                    trail.remove();
-                }
-            }, 20);
-        }
-
-        // Parallax effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            
-            document.querySelectorAll('.floating-orb').forEach((orb, index) => {
-                const speed = 1 + index * 0.5;
-                orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
-
-        // Add hover sound effect (optional - requires audio file)
-        document.querySelectorAll('.nav-section, .intro-card').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.style.transform = element.style.transform + ' scale(1.02)';
-            });
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/themes.js"></script>
+    <script src="scripts/animations.js"></script>
 </body>
-</html> 
+</html>
