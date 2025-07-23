@@ -15,7 +15,7 @@
 }
 
 .facade-layer.glitching {
-    animation: facade-glitch 1.5s ease-out forwards;
+    animation: facade-glitch 5s ease-out forwards;
 }
 
 @keyframes facade-glitch {
@@ -23,46 +23,49 @@
         opacity: 1;
         transform: scale(1);
     }
-    10% {
+    5% {
         transform: scale(1.01) translate(-2px, 0);
         filter: hue-rotate(90deg);
     }
-    20% {
+    10% {
         transform: scale(0.99) translate(2px, -2px);
         filter: hue-rotate(180deg) saturate(2);
     }
-    30% {
+    15% {
         transform: scale(1.02) translate(-1px, 2px);
         filter: hue-rotate(270deg) contrast(2);
     }
-    40% {
+    20% {
         opacity: 1;
         transform: scale(1) translate(0, 0);
         filter: hue-rotate(0deg);
     }
-    50% {
+    25% {
         opacity: 0.8;
         transform: scaleY(1.1) skewX(5deg);
     }
-    60% {
+    30% {
         opacity: 0.6;
         transform: scaleY(0.9) skewX(-5deg);
         filter: blur(1px);
     }
-    70% {
+    35% {
         opacity: 0.4;
         transform: scale(1.1);
         filter: blur(2px) brightness(2);
     }
-    85% {
+    40% {
         opacity: 0.2;
         transform: scale(0.9);
         filter: blur(5px) brightness(5);
     }
-    100% {
+    45% {
         opacity: 0;
         transform: scale(0.8);
         filter: blur(20px) brightness(10);
+    }
+    100% {
+        opacity: 0;
         display: none;
     }
 }

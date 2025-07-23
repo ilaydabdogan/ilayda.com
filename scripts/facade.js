@@ -98,7 +98,7 @@ class FacadeManager {
                 console.log('%c> TRUE.SELF.INITIALIZING...', 
                     'color: #00ff00; font-family: VT323, monospace; font-size: 16px;');
             }, 1000);
-        }, 1500); // Length of glitch animation
+        }, 5000); // Extended to show childhood photo longer (was 1500ms)
     }
 
     createGlitchText() {
@@ -117,8 +117,8 @@ class FacadeManager {
                 }
             }, 100);
 
-            // Clear after animation
-            setTimeout(() => clearInterval(glitchInterval), 1400);
+            // Clear after animation (extended to match new timing)
+            setTimeout(() => clearInterval(glitchInterval), 4900);
         });
     }
 
