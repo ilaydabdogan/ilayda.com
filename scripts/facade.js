@@ -103,23 +103,86 @@ class FacadeManager {
 
     createGlitchText() {
         const textElements = this.facadeLayer.querySelectorAll('h1, p');
+        const nameElement = this.facadeLayer.querySelector('.professional-name');
         
+        // Handle name separately with immigrant experience glitch
+        if (nameElement) {
+            this.glitchNameWithMisspellings(nameElement);
+        }
+        
+        // Handle other text elements
         textElements.forEach(element => {
-            const text = element.textContent;
-            const glitchInterval = setInterval(() => {
-                if (Math.random() > 0.7) {
-                    const glitchedText = this.glitchString(text);
-                    element.textContent = glitchedText;
-                    
-                    setTimeout(() => {
-                        element.textContent = text;
-                    }, 50);
-                }
-            }, 100);
+            if (element !== nameElement) {
+                const text = element.textContent;
+                const glitchInterval = setInterval(() => {
+                    if (Math.random() > 0.7) {
+                        const glitchedText = this.glitchString(text);
+                        element.textContent = glitchedText;
+                        
+                        setTimeout(() => {
+                            element.textContent = text;
+                        }, 50);
+                    }
+                }, 100);
 
-            // Clear after animation (extended to match new timing)
-            setTimeout(() => clearInterval(glitchInterval), 4900);
+                // Clear after animation (extended to match new timing)
+                setTimeout(() => clearInterval(glitchInterval), 4900);
+            }
         });
+    }
+    
+    glitchNameWithMisspellings(nameElement) {
+        const originalName = 'İlayda Büyükdoğan';
+        const misspellings = [
+            'Ilyada B...',
+            'llayda [unintelligible]',
+            'Eliza Something-Turkish',
+            'Ilayada B-something',
+            'how do i pronounce this???',
+            'Ilaida *squints at paper*',
+            'Aleyda [LASTNAME REDACTED]',
+            'can you spell that?',
+            'Ilada Byu... Buyu... B.',
+            'I-lay-da? Buy-uk-do-wan?',
+            'Ilayda B...B...B...',
+            'just call me ella',
+            'Ilayda [ERROR 404]',
+            'İlayda Buy... *gives up*',
+            'Ilayda CTRL+C CTRL+V',
+            'Ms. B',
+            'Ilayda [SYSTEM CRASH]',
+            'ilayda' // Just the essence
+        ];
+        
+        let index = 0;
+        const nameGlitchInterval = setInterval(() => {
+            if (index < misspellings.length - 1) {
+                // Cycle through misspellings
+                nameElement.textContent = misspellings[Math.floor(Math.random() * (misspellings.length - 1))];
+                nameElement.style.color = ['#ff0000', '#00ff00', '#ff00ff'][Math.floor(Math.random() * 3)];
+                nameElement.style.transform = `scale(${0.95 + Math.random() * 0.1}) rotate(${-5 + Math.random() * 10}deg)`;
+            } else {
+                // Final reveal - just ilayda
+                nameElement.textContent = 'ilayda';
+                nameElement.style.color = '#39FF14'; // Neon green for truth
+                nameElement.style.transform = 'scale(1) rotate(0deg)';
+                nameElement.style.textShadow = '0 0 20px #39FF14';
+                nameElement.style.fontSize = '3rem'; // Slightly bigger
+                nameElement.style.letterSpacing = '0.1em';
+                clearInterval(nameGlitchInterval);
+            }
+            index++;
+        }, 200);
+        
+        // Stop at just ilayda after cycling
+        setTimeout(() => {
+            clearInterval(nameGlitchInterval);
+            nameElement.textContent = 'ilayda';
+            nameElement.style.color = '#39FF14';
+            nameElement.style.textShadow = '0 0 20px #39FF14';
+            nameElement.style.fontSize = '3rem';
+            nameElement.style.letterSpacing = '0.1em';
+        }, 3000);
     }
 
     glitchString(str) {
