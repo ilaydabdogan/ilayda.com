@@ -90,7 +90,7 @@ class FacadeManager {
                 });
                 
                 // Change the page title
-                document.title = 'ilayda.com — SYSTEM.SACRED.INITIALIZE()';
+                document.title = 'ilayda.com — SYSTEM.TRUESELF.INITIALIZE()';
                 
                 // Add console message about the transformation
                 console.log('%c> FACADE.BREACH.DETECTED', 
@@ -132,20 +132,20 @@ class FacadeManager {
     }
     
     glitchNameWithMisspellings(nameElement) {
-        const originalName = 'İlayda Büyükdoğan';
+        const originalName = 'Ilayda Buyukdogan'; // Starting anglicized
         const misspellings = [
-            'İlayda Büyükdoğan',
+            'Ilayda Buyukdogan',  // Corporate version - no Turkish chars
             'Ilyada Buyukdogan',
-            'Ilayda Buyukdogan',
-            'Elayda Buyukdogan',
-            'Ilayada Buyukdogan',
-            'Ilaida Buyukdogan',
+            'İlayda Buyukdogan',  // Turkish İ appears
+            'Elayda Büyükdogan',  // More Turkish chars emerge
+            'Ilayada Buyukdoğan', // ğ appears
+            'İlaida Büyükdoğan',  // Full Turkish emerging
             'Aleyda Buyukdogan',
-            'Ilada Buyukdogan',
+            'İlada Büyükdoğan',   // Truth breaking through
             'Eliza Buyukdogan',
-            'Ilayda B.',
-            'Ilayda',
-            'ilayda' // Final reveal
+            'İlayda B.',
+            'İlayda',
+            'ilayda' // Final reveal - simple, lowercase
         ];
         
         let index = 0;
@@ -175,12 +175,19 @@ class FacadeManager {
                     nameElement.style.color = ['#ff0000', '#00ff00', '#ff00ff'][index % 3];
                     nameElement.style.transform = `rotate(${-2 + Math.random() * 4}deg)`;
                 } else if (index === misspellings.length - 1) {
-                    // Final reveal - just ilayda
+                    // Final reveal - just ilayda (lowercase)
+                    nameElement.textContent = 'ilayda'; // Force lowercase
                     nameElement.style.color = '#39FF14';
                     nameElement.style.transform = 'scale(1) rotate(0deg)';
                     nameElement.style.textShadow = '0 0 20px #39FF14';
                     nameElement.style.fontSize = '3rem';
                     nameElement.style.letterSpacing = '0.1em';
+                    
+                    // Keep it visible for an extra second
+                    setTimeout(() => {
+                        clearInterval(nameGlitchInterval);
+                    }, 1000);
+                    return; // Don't increment index after final reveal
                 } else {
                     // Getting closer to truth
                     nameElement.style.color = '#20FF00';
