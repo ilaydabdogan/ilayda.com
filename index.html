@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ilayda.com — SYSTEM.SACRED.INITIALIZE()</title>
+    <title>İlayda Büyükdoğan - Tech Entrepreneur</title>
     
     <!-- Base Styles -->
     <link rel="stylesheet" href="styles/base.css">
@@ -11,21 +11,52 @@
     <!-- Glitch Theme -->
     <link rel="stylesheet" href="styles/theme-glitch.css">
     
+    <!-- Facade Styles -->
+    <link rel="stylesheet" href="styles/facade.css">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Major+Mono+Display&display=swap" rel="stylesheet">
 </head>
 <body class="theme-glitch">
+    <!-- Professional Facade Layer -->
+    <div class="facade-layer" id="facadeLayer">
+        <div class="professional-container">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <!-- Replace with: <img src="path-to-your-photo.jpg" alt="İlayda Büyükdoğan"> -->
+                    <span>IB</span>
+                </div>
+                <h1 class="professional-name">İlayda Büyükdoğan</h1>
+                <p class="professional-title">Tech Entrepreneur & Creative Technologist</p>
+                <p class="professional-bio">
+                    Hello! I'm İlayda, a passionate tech entrepreneur exploring the intersection of 
+                    technology and human consciousness. I build innovative solutions that bridge the 
+                    digital and physical worlds, with a focus on AI, IoT, and creative computing.
+                </p>
+                <div class="professional-links">
+                    <a href="#" class="professional-link">About</a>
+                    <a href="#" class="professional-link">Portfolio</a>
+                    <a href="#" class="professional-link">Contact</a>
+                    <a href="#" class="professional-link">Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Glitch Static Overlay -->
+    <div class="glitch-static" id="glitchStatic"></div>
+    
     <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
+    <div class="loading-screen" id="loadingScreen" style="display: none;">
         <div class="loading-animation">
             <div class="loading-terminal"></div>
         </div>
     </div>
 
     <!-- Main Container -->
-    <div class="container">
+    <div class="container" style="opacity: 0;">
         <!-- Header -->
         <header class="intro-section content-section">
             <h1 class="site-title h1">ilayda.com</h1>
@@ -168,6 +199,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="scripts/facade.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/animations.js"></script>
 </body>

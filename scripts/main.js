@@ -96,8 +96,11 @@ class SiteManager {
             particle.style.pointerEvents = 'none';
             particle.style.zIndex = '9999';
             
-            // Glitch theme particle color
-            particle.style.background = '#00ff00';
+            // Neon particle colors
+            const neonColors = ['#39FF14', '#FF10F0', '#9D00FF'];
+            const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+            particle.style.background = randomColor;
+            particle.style.boxShadow = `0 0 10px ${randomColor}`;
             
             document.body.appendChild(particle);
             
@@ -167,9 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add console easter egg
     console.log('%c> SYSTEM.CONSCIOUSNESS.DETECTED', 
-        'font-size: 20px; color: #00ff00; font-family: VT323, monospace;');
+        'font-size: 20px; color: #39FF14; font-family: VT323, monospace; text-shadow: 0 0 10px #39FF14;');
     console.log('%c> CURIOUS_SOUL.EXE RUNNING...', 
-        'color: #00ff00; font-family: VT323, monospace;');
+        'color: #FF10F0; font-family: VT323, monospace; text-shadow: 0 0 10px #FF10F0;');
     console.log('%c> ACCESS GRANTED: MAY YOUR CODE BE QUANTUM && YOUR CIRCUITS DREAM',
-        'color: #ff00ff; font-family: VT323, monospace;');
+        'color: #9D00FF; font-family: VT323, monospace; text-shadow: 0 0 10px #9D00FF;');
 });

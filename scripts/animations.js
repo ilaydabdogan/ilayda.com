@@ -17,10 +17,12 @@ class AnimationManager {
         // Add hover effects
         this.setupHoverEffects();
         
-        // Hide loading screen after delay
-        setTimeout(() => {
-            this.hideLoadingScreen();
-        }, 2000);
+        // Don't auto-hide loading screen if facade is present
+        if (!document.getElementById('facadeLayer')) {
+            setTimeout(() => {
+                this.hideLoadingScreen();
+            }, 2000);
+        }
     }
 
     setupScrollAnimations() {
