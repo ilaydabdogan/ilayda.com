@@ -100,7 +100,7 @@
 .professional-container {
     max-width: 800px;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     margin: 0 auto;
     min-height: 100vh;
     display: flex;
@@ -391,7 +391,7 @@
     /* No transform, no shadow - utterly boring */
 }
 
-/* Newsletter Signup - Peak Corporate */
+/* Newsletter Signup - Minimalist Corporate */
 .newsletter-signup {
     margin-top: 3rem;
     padding: 2rem;
@@ -401,28 +401,41 @@
     text-align: center;
 }
 
-.newsletter-signup.newsletter-top {
-    margin-top: 0;
-    margin-bottom: 3rem;
-    background: #f0f9ff;
-    border: 2px solid #0ea5e9;
-    position: relative;
+.newsletter-signup.newsletter-minimal {
+    margin-top: 1rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.newsletter-top::before {
-    content: 'LIMITED TIME: Early access to our AI Agent marketplace';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0ea5e9;
-    color: white;
-    padding: 0.2rem 1rem;
-    font-size: 0.75rem;
-    border-radius: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.newsletter-minimal .newsletter-form {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    margin-bottom: 0;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.newsletter-minimal .newsletter-input {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.newsletter-minimal .newsletter-btn {
+    padding: 0.5rem 1rem;
+    background: #2c2c2c;
+    border-radius: 0;
+    font-size: 1.1rem;
+    min-width: 45px;
 }
 
 .newsletter-heading {
