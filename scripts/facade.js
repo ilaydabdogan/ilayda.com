@@ -22,6 +22,47 @@ class FacadeManager {
     addSubtleGlitches() {
         this.facadeLayer.classList.add('pre-glitch');
         
+        // Get bio elements
+        const bioTexts = this.facadeLayer.querySelectorAll('.professional-bio p');
+        const bioHeading = this.facadeLayer.querySelector('.bio-heading');
+        
+        // Store original bio texts
+        this.originalBioTexts = Array.from(bioTexts).map(p => p.textContent);
+        this.originalBioHeading = bioHeading ? bioHeading.textContent : '';
+        
+        // Start glitching bio text with question marks
+        this.bioGlitchInterval = setInterval(() => {
+            bioTexts.forEach((p, index) => {
+                if (Math.random() > 0.7) {
+                    const words = this.originalBioTexts[index].split(' ');
+                    const glitchedWords = words.map(word => {
+                        const rand = Math.random();
+                        if (rand > 0.9) {
+                            return word + '???';
+                        } else if (rand > 0.8) {
+                            return word + '?';
+                        } else if (rand > 0.75) {
+                            return '?' + word;
+                        }
+                        return word;
+                    });
+                    p.textContent = glitchedWords.join(' ');
+                    
+                    setTimeout(() => {
+                        p.textContent = this.originalBioTexts[index];
+                    }, 200);
+                }
+            });
+            
+            // Glitch the "About" heading
+            if (bioHeading && Math.random() > 0.8) {
+                bioHeading.textContent = 'About?';
+                setTimeout(() => {
+                    bioHeading.textContent = this.originalBioHeading;
+                }, 300);
+            }
+        }, 500);
+        
         // Occasional flicker
         const flicker = setInterval(() => {
             if (Math.random() > 0.8) {
@@ -146,6 +187,9 @@ class FacadeManager {
         // Clear the subtle glitches
         if (this.flickerInterval) {
             clearInterval(this.flickerInterval);
+        }
+        if (this.bioGlitchInterval) {
+            clearInterval(this.bioGlitchInterval);
         }
         if (this.nameGlitchInterval) {
             clearInterval(this.nameGlitchInterval);
