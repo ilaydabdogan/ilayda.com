@@ -103,6 +103,10 @@ class FacadeManager {
     }
 
     beginGlitchSequence() {
+        // Force scroll to top to ensure everyone sees the transformation
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.body.style.overflow = 'hidden'; // Prevent scrolling during glitch
+        
         // Clear the subtle glitches
         if (this.flickerInterval) {
             clearInterval(this.flickerInterval);
@@ -154,6 +158,9 @@ class FacadeManager {
                     container.style.opacity = '1';
                     container.style.transition = 'opacity 1s ease-in';
                 }
+                
+                // Re-enable scrolling after glitch sequence
+                document.body.style.overflow = '';
                 
                 // Initialize main site animations
                 document.querySelectorAll('.content-section').forEach((section, index) => {

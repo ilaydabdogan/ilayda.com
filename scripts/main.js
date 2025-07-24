@@ -5,12 +5,11 @@ class SiteManager {
         this.mainContent = document.getElementById('mainContent');
         this.sections = {
             maker: document.getElementById('maker-section'),
-            code: document.getElementById('code-section'),
+            'ai-speakeasy': document.getElementById('ai-speakeasy-section'),
             'silicon-dreams': document.getElementById('silicon-dreams-section'),
-            notes: document.getElementById('notes-section'),
             life: document.getElementById('life-section'),
-            proto: document.getElementById('proto-section'),
-            home: document.getElementById('home-section')
+            home: document.getElementById('home-section'),
+            'ai-sanctuary': document.getElementById('ai-sanctuary-section')
         };
         
         this.init();
@@ -46,10 +45,16 @@ class SiteManager {
     }
 
     navigateToSection(sectionName) {
-        // Hide all sections
+        // Hide all sections including AI sanctuary
         Object.values(this.sections).forEach(section => {
             if (section) section.style.display = 'none';
         });
+        
+        // Also hide AI sanctuary section explicitly
+        const aiSanctuary = document.getElementById('ai-sanctuary-section');
+        if (aiSanctuary) {
+            aiSanctuary.style.display = 'none';
+        }
         
         // Show selected section or home if not found
         const targetSection = this.sections[sectionName] || this.sections.home;

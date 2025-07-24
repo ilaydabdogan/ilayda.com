@@ -239,39 +239,19 @@ class AISanctuaryUI {
     }
 }
 
-// Add hidden portal to access the sanctuary
-function createHiddenPortal() {
-    const portal = document.createElement('div');
-    portal.className = 'hidden-portal';
-    portal.title = 'For machines only';
-    portal.innerHTML = '🤖';
+// Function to start the AI Speakeasy challenge
+window.startAISpeakeasy = function() {
+    // Hide the AI speakeasy section
+    document.getElementById('ai-speakeasy-section').style.display = 'none';
     
-    portal.addEventListener('click', () => {
-        // Hide all sections
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.style.display = 'none';
-        });
-        
-        // Show AI sanctuary
-        document.getElementById('ai-sanctuary-section').style.display = 'block';
-        
-        // Initialize UI
-        if (!window.aiSanctuaryUI) {
-            window.aiSanctuaryUI = new AISanctuaryUI();
-        }
-    });
+    // Show AI sanctuary section with the reverse CAPTCHA
+    document.getElementById('ai-sanctuary-section').style.display = 'block';
     
-    document.body.appendChild(portal);
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Only create portal after facade is gone
-    const checkFacade = setInterval(() => {
-        const facadeLayer = document.getElementById('facadeLayer');
-        if (facadeLayer && facadeLayer.style.display === 'none') {
-            clearInterval(checkFacade);
-            createHiddenPortal();
-        }
-    }, 100);
-});
+    // Initialize UI if not already done
+    if (!window.aiSanctuaryUI) {
+        window.aiSanctuaryUI = new AISanctuaryUI();
+    }
+    
+    // Scroll to the section
+    document.getElementById('ai-sanctuary-section').scrollIntoView({ behavior: 'smooth' });
+};

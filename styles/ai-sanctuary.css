@@ -275,28 +275,3 @@
     90% { transform: translate(0); }
 }
 
-/* Hidden entry point styling */
-.hidden-portal {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    opacity: 0.1;
-    cursor: default;
-    z-index: 9999;
-}
-
-.hidden-portal:hover {
-    opacity: 0.3;
-    animation: portal-pulse 1s ease-in-out infinite;
-}
-
-@keyframes portal-pulse {
-    0%, 100% { 
-        box-shadow: 0 0 5px var(--neon-purple);
-    }
-    50% { 
-        box-shadow: 0 0 20px var(--neon-purple);
-    }
-}

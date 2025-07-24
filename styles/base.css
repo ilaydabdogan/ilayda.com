@@ -73,8 +73,8 @@ body {
 .nav-constellation {
     position: relative;
     width: 100%;
-    min-height: 400px;
-    margin: 2rem 0 6rem 0;
+    min-height: 300px;
+    margin: 2rem 0 3rem 0;
     z-index: 100;
     overflow: visible;
 }
@@ -109,8 +109,8 @@ body {
 #mainContent {
     position: relative;
     z-index: 50;
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 1rem;
+    padding-top: 0;
     clear: both;
 }
 
@@ -187,11 +187,59 @@ body {
     }
     
     .nav-constellation {
-        height: 600px;
+        min-height: 500px;
+        margin: 1rem 0 2rem 0;
+    }
+    
+    .nav-node {
+        width: 90px;
+        height: 90px;
+        font-size: 0.85rem;
+    }
+    
+    .nav-node .node-label {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+    
+    /* Reposition nodes for mobile */
+    .nav-node[data-section="maker"] {
+        top: 5% !important;
+        left: 10% !important;
+    }
+    
+    .nav-node[data-section="ai-speakeasy"] {
+        top: 5% !important;
+        left: 55% !important;
+    }
+    
+    .nav-node[data-section="silicon-dreams"] {
+        top: 40% !important;
+        left: 10% !important;
+    }
+    
+    .nav-node[data-section="life"] {
+        top: 40% !important;
+        left: 55% !important;
     }
     
     .container {
         padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-constellation {
+        min-height: 400px;
+    }
+    
+    .nav-node {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .nav-node .node-label {
+        font-size: 0.7rem;
     }
 }
 

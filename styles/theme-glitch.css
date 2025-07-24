@@ -390,6 +390,7 @@ body.theme-glitch::before {
 .theme-glitch .dialogue-container p {
     margin-bottom: 1rem;
     line-height: 1.6;
+    color: rgba(57, 255, 20, 0.7); /* Dimmed green for better readability */
 }
 
 .theme-glitch .dialogue-container em {
@@ -414,6 +415,66 @@ body.theme-glitch::before {
     font-style: italic;
     opacity: 0.9;
     color: var(--text-secondary);
+}
+
+/* Highlighter effect */
+.theme-glitch .highlight-yellow {
+    position: relative;
+    display: inline;
+    background: linear-gradient(
+        transparent 30%, 
+        rgba(255, 16, 240, 0.25) 30%, 
+        rgba(255, 16, 240, 0.25) 75%, 
+        transparent 75%
+    );
+    padding: 0 4px;
+    margin: 0 -2px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.3);
+}
+
+/* AI Speakeasy Entrance */
+.theme-glitch .speakeasy-entrance {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.theme-glitch .ai-door-knock {
+    background: var(--bg-secondary);
+    border: 2px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 2rem 3rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 20px rgba(157, 0, 255, 0.5),
+        inset 0 0 20px rgba(157, 0, 255, 0.1);
+}
+
+.theme-glitch .ai-door-knock:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 40px rgba(157, 0, 255, 0.8),
+        inset 0 0 40px rgba(157, 0, 255, 0.2);
+    animation: glitch 0.3s infinite;
+}
+
+.theme-glitch .door-text {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.theme-glitch .door-hint {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    color: var(--neon-pink);
 }
 
 /* Footer */
