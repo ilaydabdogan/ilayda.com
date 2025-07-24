@@ -19,6 +19,9 @@ class SiteManager {
         // Set up navigation
         this.setupNavigation();
         
+        // Draw constellation lines
+        this.drawConstellationLines();
+        
         // Add keyboard navigation
         this.setupKeyboardNav();
         
@@ -27,6 +30,11 @@ class SiteManager {
         
         // Random mood generator
         this.startMoodCycle();
+        
+        // Redraw lines on window resize
+        window.addEventListener('resize', () => {
+            this.drawConstellationLines();
+        });
     }
 
     setupNavigation() {
@@ -43,11 +51,71 @@ class SiteManager {
             });
         });
     }
+    
+    drawConstellationLines() {
+        const constellation = document.getElementById('constellation');
+        
+        // Remove existing lines
+        const existingLines = constellation.querySelectorAll('.nav-line');
+        existingLines.forEach(line => line.remove());
+        
+        // Define connections between nodes
+        const connections = [
+            ['maker', 'ai-speakeasy'],
+            ['maker', 'silicon-dreams'],
+            ['ai-speakeasy', 'life'],
+            ['silicon-dreams', 'life'],
+            ['silicon-dreams', 'ai-speakeasy']
+        ];
+        
+        // Draw lines between connected nodes
+        connections.forEach(([from, to]) => {
+            const fromNode = constellation.querySelector(`[data-section="${from}"]`);
+            const toNode = constellation.querySelector(`[data-section="${to}"]`);
+            
+            if (fromNode && toNode) {
+                const line = this.createLine(fromNode, toNode);
+                if (line) {
+                    constellation.appendChild(line);
+                }
+            }
+        });
+    }
+    
+    createLine(node1, node2) {
+        const rect1 = node1.getBoundingClientRect();
+        const rect2 = node2.getBoundingClientRect();
+        const containerRect = node1.parentElement.getBoundingClientRect();
+        
+        // Calculate center points relative to container
+        const x1 = rect1.left + rect1.width / 2 - containerRect.left;
+        const y1 = rect1.top + rect1.height / 2 - containerRect.top;
+        const x2 = rect2.left + rect2.width / 2 - containerRect.left;
+        const y2 = rect2.top + rect2.height / 2 - containerRect.top;
+        
+        // Calculate line properties
+        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        
+        // Create line element
+        const line = document.createElement('div');
+        line.className = 'nav-line';
+        line.style.width = length + 'px';
+        line.style.left = x1 + 'px';
+        line.style.top = y1 + 'px';
+        line.style.transform = `rotate(${angle}deg)`;
+        line.style.transformOrigin = '0 50%';
+        
+        return line;
+    }
 
     navigateToSection(sectionName) {
         // Hide all sections including AI sanctuary
         Object.values(this.sections).forEach(section => {
-            if (section) section.style.display = 'none';
+            if (section) {
+                section.style.display = 'none';
+                section.classList.remove('visible');
+            }
         });
         
         // Also hide AI sanctuary section explicitly
@@ -59,8 +127,13 @@ class SiteManager {
         // Show selected section or home if not found
         const targetSection = this.sections[sectionName] || this.sections.home;
         if (targetSection) {
+            // Immediately show without animation when navigating
             targetSection.style.display = 'block';
+            targetSection.style.opacity = '1';
+            targetSection.style.transform = 'translateY(0)';
+            targetSection.style.transition = 'none'; // Disable transition
             targetSection.classList.add('visible');
+            targetSection.classList.add('no-animate'); // Mark as no animation needed
             
             // Scroll to content
             this.mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });

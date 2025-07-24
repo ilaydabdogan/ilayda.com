@@ -103,9 +103,19 @@ class FacadeManager {
     }
 
     beginGlitchSequence() {
-        // Force scroll to top to ensure everyone sees the transformation
-        window.scrollTo({ top: 0, behavior: 'instant' });
-        document.body.style.overflow = 'hidden'; // Prevent scrolling during glitch
+        // Force scroll to top multiple times to ensure it works on all devices
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0; // For Safari
+        
+        // Lock scrolling during glitch
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.top = '0';
+        
+        // Also lock html element for extra security
+        document.documentElement.style.overflow = 'hidden';
         
         // Clear the subtle glitches
         if (this.flickerInterval) {
@@ -118,12 +128,14 @@ class FacadeManager {
             clearInterval(this.titleGlitchInterval);
         }
 
-        // Start photo glitch effect
-        const profileImage = document.getElementById('profileImage');
-        const trueSelfPhoto = document.getElementById('trueSelfPhoto');
-        
-        if (profileImage) {
-            profileImage.classList.add('glitching');
+        // Small delay to ensure scroll completes on all devices
+        setTimeout(() => {
+            // Start photo glitch effect
+            const profileImage = document.getElementById('profileImage');
+            const trueSelfPhoto = document.getElementById('trueSelfPhoto');
+            
+            if (profileImage) {
+                profileImage.classList.add('glitching');
             
             // Show true self photo during glitch
             setTimeout(() => {
@@ -161,11 +173,18 @@ class FacadeManager {
                 
                 // Re-enable scrolling after glitch sequence
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                document.body.style.top = '';
+                document.documentElement.style.overflow = '';
                 
-                // Initialize main site animations
+                // Initialize main site animations (only for initially visible sections)
                 document.querySelectorAll('.content-section').forEach((section, index) => {
-                    section.style.animationDelay = `${index * 0.1}s`;
-                    section.classList.add('fade-in');
+                    // Only animate sections that are visible (header, footer, etc)
+                    if (window.getComputedStyle(section).display !== 'none') {
+                        section.style.animationDelay = `${index * 0.1}s`;
+                        section.classList.add('fade-in');
+                    }
                 });
                 
                 // Change the page title
@@ -178,6 +197,7 @@ class FacadeManager {
                     'color: #00ff00; font-family: VT323, monospace; font-size: 16px;');
             }, 1000);
         }, 5000); // Extended to show childhood photo longer (was 1500ms)
+        }, 100); // Small delay for scroll to complete
     }
 
     createGlitchText() {

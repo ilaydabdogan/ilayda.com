@@ -33,7 +33,10 @@ class AnimationManager {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                // Skip if already visible or marked as no-animate
+                if (entry.isIntersecting && 
+                    !entry.target.classList.contains('visible') && 
+                    !entry.target.classList.contains('no-animate')) {
                     entry.target.classList.add('visible');
                     
                     // Add stagger effect to child elements
@@ -103,10 +106,12 @@ class AnimationManager {
             });
         });
 
-        // Add floating animation to nav nodes
+        // Add floating animation to nav nodes (only if not already applied)
         document.querySelectorAll('.nav-node').forEach((node, index) => {
-            node.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite`;
-            node.style.animationDelay = `${index * 0.2}s`;
+            if (!node.style.animation) {
+                node.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite`;
+                node.style.animationDelay = `${index * 0.2}s`;
+            }
         });
     }
 
