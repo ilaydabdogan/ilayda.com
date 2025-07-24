@@ -34,12 +34,84 @@ class FacadeManager {
 
         // Store interval to clear later
         this.flickerInterval = flicker;
+        
+        // At 5 seconds (2 seconds after subtle glitches start), add bolder glitches
+        setTimeout(() => {
+            this.addBolderGlitches();
+        }, 2000);
+    }
+    
+    addBolderGlitches() {
+        const nameElement = this.facadeLayer.querySelector('.professional-name');
+        const titleElement = this.facadeLayer.querySelector('.professional-title');
+        const bioTexts = this.facadeLayer.querySelectorAll('.professional-bio p');
+        
+        // Store original texts
+        const originalName = nameElement.textContent;
+        const originalTitle = titleElement.textContent;
+        const originalBios = Array.from(bioTexts).map(p => p.textContent);
+        
+        // Glitch the name with character replacements
+        this.nameGlitchInterval = setInterval(() => {
+            if (Math.random() > 0.7) {
+                const glitched = this.glitchTextWithCharacters(originalName);
+                nameElement.textContent = glitched;
+                
+                setTimeout(() => {
+                    nameElement.textContent = originalName;
+                }, 150);
+            }
+        }, 300);
+        
+        // Glitch the title occasionally
+        this.titleGlitchInterval = setInterval(() => {
+            if (Math.random() > 0.85) {
+                titleElement.textContent = 'Founder & CEO? | Thiel? Fellow';
+                
+                setTimeout(() => {
+                    titleElement.textContent = originalTitle;
+                }, 200);
+            }
+        }, 500);
+        
+        // Add question marks to bio text
+        bioTexts.forEach((p, index) => {
+            setInterval(() => {
+                if (Math.random() > 0.9) {
+                    const words = originalBios[index].split(' ');
+                    const wordIndex = Math.floor(Math.random() * words.length);
+                    words[wordIndex] = words[wordIndex] + '?';
+                    p.textContent = words.join(' ');
+                    
+                    setTimeout(() => {
+                        p.textContent = originalBios[index];
+                    }, 300);
+                }
+            }, 600);
+        });
+    }
+    
+    glitchTextWithCharacters(text) {
+        const glitchChars = '!?@#$%^&*İıÇçĞğÖöÜüŞş';
+        return text.split('').map((char, index) => {
+            // Only glitch 1-2 characters
+            if (Math.random() > 0.8 && index > 0 && index < text.length - 1) {
+                return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+            }
+            return char;
+        }).join('');
     }
 
     beginGlitchSequence() {
         // Clear the subtle glitches
         if (this.flickerInterval) {
             clearInterval(this.flickerInterval);
+        }
+        if (this.nameGlitchInterval) {
+            clearInterval(this.nameGlitchInterval);
+        }
+        if (this.titleGlitchInterval) {
+            clearInterval(this.titleGlitchInterval);
         }
 
         // Start photo glitch effect
