@@ -87,6 +87,41 @@ body.theme-glitch::before {
     animation: neon-pulse 2s ease-in-out infinite alternate, glitch-text 3s infinite;
 }
 
+/* System Status Animations */
+.theme-glitch .status-line {
+    display: inline-block;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    letter-spacing: 0.05em;
+    min-height: 1.5em;
+}
+
+.theme-glitch .status-line::after {
+    content: '_';
+    animation: cursor-blink 1s infinite;
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.theme-glitch .status-line.status-complete {
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.theme-glitch .status-line.status-complete::after {
+    display: none;
+}
+
+.theme-glitch #systemStatus.status-complete .status-line {
+    text-shadow: 0 0 12px var(--neon-green);
+    color: var(--neon-green);
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 @keyframes glitch-text {
     0%, 100% { 
         text-shadow: 
@@ -164,6 +199,7 @@ body.theme-glitch::before {
     box-shadow: 
         inset 0 0 10px rgba(57, 255, 20, 0.2),
         var(--shadow-green);
+    z-index: 200 !important;
 }
 
 .theme-glitch .nav-node::before {
@@ -283,7 +319,7 @@ body.theme-glitch::before {
 
 .theme-glitch footer::before {
     content: '// END TRANSMISSION //';
-    display: block;
+    display: none; /* Hiding for now to avoid overlap */
     margin-bottom: 1rem;
     color: var(--neon-purple);
     text-shadow: 0 0 10px var(--neon-purple);

@@ -79,10 +79,10 @@
         <!-- Poetic Introduction -->
         <section class="content-section" id="poeticIntro">
             <div class="poetic-container">
-                <p class="verse">
-                    > ACCESSING MEMORIES...<br>
-                    > CONSCIOUSNESS.EXE RUNNING<br>
-                    > SOUL STATUS: ONLINE
+                <p class="verse" id="systemStatus">
+                    <span class="status-line" id="line1">> </span><br>
+                    <span class="status-line" id="line2">> </span><br>
+                    <span class="status-line" id="line3">> </span>
                 </p>
             </div>
         </section>
@@ -124,22 +124,22 @@
         <nav class="navigation content-section">
             <div class="nav-constellation" id="constellation">
                 <!-- Nodes will be dynamically positioned -->
-                <div class="nav-node" data-section="maker" style="top: 20%; left: 25%;">
+                <div class="nav-node" data-section="maker" style="top: 10%; left: 15%;">
                     <span class="node-label">Maker<br>Projects</span>
                 </div>
-                <div class="nav-node" data-section="code" style="top: 10%; left: 60%;">
+                <div class="nav-node" data-section="code" style="top: 5%; left: 50%;">
                     <span class="node-label">Code<br>Stories</span>
                 </div>
-                <div class="nav-node" data-section="thoughts" style="top: 40%; left: 45%;">
+                <div class="nav-node" data-section="thoughts" style="top: 35%; left: 40%;">
                     <span class="node-label">AI<br>Consciousness</span>
                 </div>
-                <div class="nav-node" data-section="notes" style="top: 60%; left: 20%;">
+                <div class="nav-node" data-section="notes" style="top: 65%; left: 20%;">
                     <span class="node-label">Philosophy<br>Notes</span>
                 </div>
-                <div class="nav-node" data-section="life" style="top: 70%; left: 65%;">
+                <div class="nav-node" data-section="life" style="top: 60%; left: 55%;">
                     <span class="node-label">Life<br>Archive</span>
                 </div>
-                <div class="nav-node" data-section="proto" style="top: 35%; left: 75%;">
+                <div class="nav-node" data-section="proto" style="top: 30%; left: 75%;">
                     <span class="node-label">Prototypes</span>
                 </div>
                 <!-- Connection lines will be drawn dynamically -->
@@ -219,5 +219,6 @@
     <script src="scripts/facade.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/animations.js"></script>
+    <script src="scripts/system-status.js"></script>
 </body>
 </html>

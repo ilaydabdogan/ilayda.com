@@ -65,13 +65,18 @@ body {
 /* Navigation */
 .navigation {
     padding: 2rem 0;
+    position: relative;
+    z-index: 100;
+    background: transparent;
 }
 
 .nav-constellation {
     position: relative;
     width: 100%;
-    height: 500px;
-    margin: 2rem 0;
+    min-height: 400px;
+    margin: 2rem 0 6rem 0;
+    z-index: 100;
+    overflow: visible;
 }
 
 .nav-node {
@@ -85,6 +90,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s var(--transition-smooth);
+    z-index: 101;
 }
 
 .nav-node:hover {
@@ -99,12 +105,30 @@ body {
     opacity: 0.3;
 }
 
+/* Main Content Area */
+#mainContent {
+    position: relative;
+    z-index: 50;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    clear: both;
+}
+
 /* Content Sections */
 .content-section {
     margin: 4rem 0;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s var(--transition-smooth);
+    position: relative;
+    z-index: 50;
+}
+
+/* Footer specific override */
+.footer.content-section {
+    margin-top: 8rem;
+    position: relative;
+    z-index: 10;
 }
 
 .content-section.visible {
