@@ -103,19 +103,41 @@ class FacadeManager {
     }
 
     beginGlitchSequence() {
+        // Store current scroll position before locking
+        const scrollY = window.scrollY || window.pageYOffset;
+        
         // Force scroll to top multiple times to ensure it works on all devices
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0; // For Safari
         
-        // Lock scrolling during glitch
+        // Mobile-compatible scroll lock
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
-        document.body.style.top = '0';
+        document.body.style.top = `-${scrollY}px`; // Compensate for scroll position
+        document.body.style.touchAction = 'none'; // Prevent touch scrolling
         
         // Also lock html element for extra security
         document.documentElement.style.overflow = 'hidden';
+        document.documentElement.style.position = 'fixed';
+        document.documentElement.style.width = '100%';
+        
+        // Prevent touchmove events on mobile
+        this.preventScroll = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        };
+        
+        document.addEventListener('touchmove', this.preventScroll, { passive: false });
+        document.addEventListener('wheel', this.preventScroll, { passive: false });
+        
+        // Force viewport to top on mobile
+        if ('ontouchstart' in window) {
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 
+                'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+        }
         
         // Clear the subtle glitches
         if (this.flickerInterval) {
@@ -128,6 +150,20 @@ class FacadeManager {
             clearInterval(this.titleGlitchInterval);
         }
 
+        // Continuously force scroll to top for the first second (mobile fallback)
+        this.scrollInterval = setInterval(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }, 50);
+        
+        // Stop the scroll forcing after 1 second
+        setTimeout(() => {
+            if (this.scrollInterval) {
+                clearInterval(this.scrollInterval);
+            }
+        }, 1000);
+        
         // Small delay to ensure scroll completes on all devices
         setTimeout(() => {
             // Start photo glitch effect
@@ -176,7 +212,22 @@ class FacadeManager {
                 document.body.style.position = '';
                 document.body.style.width = '';
                 document.body.style.top = '';
+                document.body.style.touchAction = '';
                 document.documentElement.style.overflow = '';
+                document.documentElement.style.position = '';
+                document.documentElement.style.width = '';
+                
+                // Remove scroll prevention listeners
+                if (this.preventScroll) {
+                    document.removeEventListener('touchmove', this.preventScroll);
+                    document.removeEventListener('wheel', this.preventScroll);
+                }
+                
+                // Restore viewport on mobile
+                if ('ontouchstart' in window) {
+                    document.querySelector('meta[name="viewport"]').setAttribute('content', 
+                        'width=device-width, initial-scale=1.0');
+                }
                 
                 // Initialize main site animations (only for initially visible sections)
                 document.querySelectorAll('.content-section').forEach((section, index) => {

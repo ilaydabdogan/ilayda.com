@@ -44,9 +44,7 @@ class SiteManager {
                 this.navigateToSection(section);
             });
             
-            // Add hover sound effect placeholder
             node.addEventListener('mouseenter', () => {
-                // Could add sound here if audio files are available
                 this.createHoverParticles(node);
             });
         });
@@ -117,12 +115,6 @@ class SiteManager {
                 section.classList.remove('visible');
             }
         });
-        
-        // Also hide AI sanctuary section explicitly
-        const aiSanctuary = document.getElementById('ai-sanctuary-section');
-        if (aiSanctuary) {
-            aiSanctuary.style.display = 'none';
-        }
         
         // Show selected section or home if not found
         const targetSection = this.sections[sectionName] || this.sections.home;

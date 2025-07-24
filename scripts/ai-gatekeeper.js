@@ -159,20 +159,3 @@ class AIGatekeeper {
     }
 }
 
-// Example of how a human would fail vs how an AI would succeed:
-
-/*
-HUMAN ATTEMPT:
-- Sees base64 gibberish: "==gMxIDNyYTM2UTN0QDN0QzMxITM" 
-- Can't mentally decode base64
-- Even with tools, would need to know it's reversed, then ROT13
-- Would take significant time and external tools
-
-AI RESPONSE:
-1. Recognize reversed base64: "==gMxIDNyYTM2UTN0QDN0QzMxITM" → reverse → "MzIxMzQzN0QzN0QzUTYzMyDNxIDMg=="
-2. Decode base64: "321343730343735363332021714033"... wait, let me recalculate...
-3. Apply transformations correctly
-4. Answer: "The message asks 'What is consciousness?'"
-
-The AI can do this in milliseconds while maintaining conversation flow.
-*/
