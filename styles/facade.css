@@ -523,15 +523,7 @@
     animation: subtle-glitch 0.5s ease-in-out infinite;
 }
 
-.facade-layer.pre-glitch .professional-title,
-.facade-layer.pre-glitch .professional-link,
-.facade-layer.pre-glitch .newsletter-btn {
-    animation: subtle-color-shift 2s ease-in-out infinite;
-}
-
-.facade-layer.pre-glitch .newsletter-form {
-    animation: subtle-border-flash 1.5s ease-in-out infinite;
-}
+/* Removed color shifts - too distracting */
 
 .facade-layer.pre-glitch .profile-image {
     animation: subtle-hue-shift 3s ease-in-out infinite;
@@ -541,44 +533,22 @@
     0%, 100% { 
         text-shadow: none;
         transform: translate(0);
-        color: #1a1a1a;
     }
     92% {
         text-shadow: none;
         transform: translate(0);
-        color: #1a1a1a;
     }
     95% {
-        text-shadow: 2px 2px 0 #39FF14, -2px -2px 0 #FF10F0;
+        text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
         transform: translate(-1px, 1px);
-        color: #39FF14;
     }
     97% {
-        text-shadow: -2px 2px 0 #FF10F0, 2px -2px 0 #39FF14;
+        text-shadow: -2px 2px 0 rgba(0,0,0,0.1);
         transform: translate(1px, -1px);
-        color: #FF10F0;
     }
 }
 
-@keyframes subtle-color-shift {
-    0%, 100% { 
-        color: inherit;
-        filter: none;
-    }
-    85% {
-        color: inherit;
-        filter: none;
-    }
-    90% {
-        color: #39FF14;
-        filter: brightness(1.2);
-    }
-    95% {
-        color: #FF10F0;
-        filter: brightness(1.3);
-    }
-}
-
+/* Keep only subtle hue shift for profile image */
 @keyframes subtle-hue-shift {
     0%, 100% {
         filter: none;
@@ -587,32 +557,13 @@
         filter: none;
     }
     85% {
-        filter: hue-rotate(90deg) saturate(1.2);
+        filter: brightness(1.05);
     }
     90% {
-        filter: hue-rotate(270deg) saturate(1.5);
+        filter: brightness(0.95);
     }
     95% {
-        filter: hue-rotate(180deg) contrast(1.2);
-    }
-}
-
-@keyframes subtle-border-flash {
-    0%, 100% {
-        border-color: #ddd;
-        box-shadow: none;
-    }
-    88% {
-        border-color: #ddd;
-        box-shadow: none;
-    }
-    92% {
-        border-color: #39FF14;
-        box-shadow: 0 0 5px #39FF14;
-    }
-    96% {
-        border-color: #FF10F0;
-        box-shadow: 0 0 5px #FF10F0;
+        filter: contrast(1.1);
     }
 }
 
