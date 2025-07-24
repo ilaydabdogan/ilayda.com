@@ -6,7 +6,10 @@ class SiteManager {
         this.sections = {
             maker: document.getElementById('maker-section'),
             code: document.getElementById('code-section'),
-            thoughts: document.getElementById('thoughts-section'),
+            'silicon-dreams': document.getElementById('silicon-dreams-section'),
+            notes: document.getElementById('notes-section'),
+            life: document.getElementById('life-section'),
+            proto: document.getElementById('proto-section'),
             home: document.getElementById('home-section')
         };
         
@@ -161,6 +164,20 @@ class SiteManager {
                 }, 300);
             }
         }, 10000); // Change every 10 seconds
+    }
+}
+
+// Toggle function for collapsible entries
+function toggleEntry(header) {
+    const content = header.nextElementSibling;
+    const indicator = header.querySelector('.toggle-indicator');
+    
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        indicator.textContent = '▲';
+    } else {
+        content.style.display = 'none';
+        indicator.textContent = '▼';
     }
 }
 
