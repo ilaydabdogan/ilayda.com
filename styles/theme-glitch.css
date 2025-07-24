@@ -95,6 +95,14 @@ body.theme-glitch::before {
         0 0 10px rgba(255, 16, 240, 0.3);
 }
 
+/* Manifesto section headings */
+.theme-glitch .manifesto-item h3 {
+    color: var(--neon-pink);
+    text-shadow: 
+        0 0 5px rgba(255, 16, 240, 0.5),
+        0 0 10px rgba(255, 16, 240, 0.3);
+}
+
 /* System Status Animations */
 .theme-glitch .status-line {
     display: inline-block;
@@ -326,6 +334,34 @@ body.theme-glitch::before {
     overflow: hidden;
 }
 
+/* Project Entry Styles - no hover effects */
+.theme-glitch .project-entry {
+    background: var(--bg-secondary);
+    border: 1px solid var(--text-primary);
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.theme-glitch .coming-soon {
+    color: var(--neon-purple);
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 2rem;
+}
+
+/* Life Archive Entry Styles - no hover effects */
+.theme-glitch .life-entry {
+    background: var(--bg-secondary);
+    border: 1px solid var(--text-primary);
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .theme-glitch .entry-header {
     display: flex;
     align-items: center;
@@ -504,7 +540,8 @@ body.theme-glitch::before {
             0 0 6px rgba(255, 16, 240, 0.2);
     }
     
-    .theme-glitch .entry-header h3 {
+    .theme-glitch .entry-header h3,
+    .theme-glitch .manifesto-item h3 {
         text-shadow: 
             0 0 3px rgba(255, 16, 240, 0.3),
             0 0 6px rgba(255, 16, 240, 0.2);
