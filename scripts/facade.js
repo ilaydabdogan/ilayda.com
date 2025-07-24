@@ -103,19 +103,23 @@ class FacadeManager {
     }
 
     beginGlitchSequence() {
-        // Store current scroll position before locking
-        const scrollY = window.scrollY || window.pageYOffset;
-        
-        // Force scroll to top multiple times to ensure it works on all devices
+        // First, immediately jump to top before any visual changes
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0; // For Safari
+        document.body.scrollTop = 0;
         
-        // Mobile-compatible scroll lock
+        // Force the facade layer itself to top
+        this.facadeLayer.scrollTop = 0;
+        
+        // Reset any transforms that might affect position
+        this.facadeLayer.style.transform = 'none';
+        
+        // Mobile-compatible scroll lock - but position at top, not at current scroll
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
-        document.body.style.top = `-${scrollY}px`; // Compensate for scroll position
+        document.body.style.top = '0'; // Always position at top, not compensating
+        document.body.style.left = '0';
         document.body.style.touchAction = 'none'; // Prevent touch scrolling
         
         // Also lock html element for extra security
@@ -155,6 +159,12 @@ class FacadeManager {
             window.scrollTo(0, 0);
             document.documentElement.scrollTop = 0;
             document.body.scrollTop = 0;
+            this.facadeLayer.scrollTop = 0;
+            
+            // Also ensure the facade layer is positioned at top
+            if (this.facadeLayer.style.top !== '0') {
+                this.facadeLayer.style.top = '0';
+            }
         }, 50);
         
         // Stop the scroll forcing after 1 second
