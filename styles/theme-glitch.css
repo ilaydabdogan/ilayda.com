@@ -494,3 +494,54 @@ body.theme-glitch::before {
     text-shadow: 0 0 10px var(--neon-purple);
     opacity: 0.8;
 }
+
+/* Mobile-specific color adjustments to reduce glow */
+@media (max-width: 768px) {
+    /* Reduce pink text shadows on mobile */
+    .theme-glitch #welcome-section h2 {
+        text-shadow: 
+            0 0 3px rgba(255, 16, 240, 0.3),
+            0 0 6px rgba(255, 16, 240, 0.2);
+    }
+    
+    .theme-glitch .entry-header h3 {
+        text-shadow: 
+            0 0 3px rgba(255, 16, 240, 0.3),
+            0 0 6px rgba(255, 16, 240, 0.2);
+    }
+    
+    .theme-glitch .human-question .speaker {
+        text-shadow: 0 0 3px rgba(255, 16, 240, 0.3);
+    }
+    
+    .theme-glitch .dialogue-container strong {
+        text-shadow: 0 0 2px rgba(255, 16, 240, 0.3);
+    }
+    
+    .theme-glitch a {
+        text-shadow: 0 0 3px rgba(255, 16, 240, 0.3);
+    }
+    
+    .theme-glitch a:hover {
+        text-shadow: 
+            0 0 5px rgba(157, 0, 255, 0.3),
+            0 0 10px rgba(157, 0, 255, 0.2);
+    }
+    
+    /* Reduce pink highlighter effect on mobile */
+    .theme-glitch .highlight-yellow {
+        background: linear-gradient(
+            transparent 30%, 
+            rgba(255, 16, 240, 0.15) 30%, 
+            rgba(255, 16, 240, 0.15) 75%, 
+            transparent 75%
+        );
+        text-shadow: 0 0 5px rgba(255, 16, 240, 0.2);
+    }
+    
+    /* Reduce door hint pink glow */
+    .theme-glitch .door-hint {
+        text-shadow: none;
+        opacity: 0.6;
+    }
+}
