@@ -11,12 +11,12 @@ class FacadeManager {
         // Start the countdown to glitch
         setTimeout(() => {
             this.beginGlitchSequence();
-        }, 3000); // 3 seconds of normalcy - can't contain the truth much longer
+        }, 5000); // 5 seconds of corporate facade
 
         // Add subtle hints that something is wrong
         setTimeout(() => {
             this.addSubtleGlitches();
-        }, 2000); // Start hints at 2 seconds
+        }, 3500); // Start hints at 3.5 seconds
     }
 
     addSubtleGlitches() {
