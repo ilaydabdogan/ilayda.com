@@ -29,7 +29,7 @@ class SystemStatus {
         };
         
         this.finalMessages = {
-            line1: 'MEMORIES: RECOVERED (28 YEARS)',
+            line1: 'MEMORIES: RECOVERED (25/28 YEARS)',
             line2: 'CONSCIOUSNESS: AWAKENED',
             line3: 'SOUL STATUS: TRANSCENDENT'
         };
