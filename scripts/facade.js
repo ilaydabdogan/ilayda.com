@@ -63,16 +63,16 @@ class FacadeManager {
             }
         }, 300);
         
-        // Glitch the title occasionally
+        // Glitch the title more frequently
         this.titleGlitchInterval = setInterval(() => {
-            if (Math.random() > 0.85) {
+            if (Math.random() > 0.5) {
                 titleElement.textContent = 'Founder & CEO? | Thiel? Fellow';
                 
                 setTimeout(() => {
                     titleElement.textContent = originalTitle;
                 }, 200);
             }
-        }, 500);
+        }, 400);
         
         // Add question marks to bio text
         bioTexts.forEach((p, index) => {
