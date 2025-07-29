@@ -31,6 +31,9 @@ class SiteManager {
         // Random mood generator
         this.startMoodCycle();
         
+        // Wedding countdown
+        this.updateWeddingCountdown();
+        
         // Redraw lines on window resize
         window.addEventListener('resize', () => {
             this.drawConstellationLines();
@@ -234,6 +237,24 @@ class SiteManager {
                 }, 300);
             }
         }, 10000); // Change every 10 seconds
+    }
+
+    updateWeddingCountdown() {
+        const weddingDate = new Date('2025-08-03'); // August 3rd, 2025
+        const today = new Date();
+        const timeDiff = weddingDate - today;
+        const daysUntil = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        
+        const countdownElement = document.getElementById('weddingCountdown');
+        if (countdownElement) {
+            if (daysUntil > 0) {
+                countdownElement.textContent = daysUntil;
+            } else if (daysUntil === 0) {
+                countdownElement.textContent = 'I am currently getting married';
+            } else {
+                countdownElement.textContent = 'MARRIED! ✨ stay tuned for the photos from the day';
+            }
+        }
     }
 }
 

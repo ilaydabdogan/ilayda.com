@@ -42,6 +42,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .terminal-title {
@@ -62,6 +64,18 @@
 
 #sanctuaryStatus.unlocked {
     color: var(--neon-green);
+}
+
+.visitor-counter {
+    color: var(--neon-purple);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+#aiVisitorCount {
+    color: var(--neon-green);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-green);
     animation: none;
     text-shadow: 0 0 10px var(--neon-green);
 }

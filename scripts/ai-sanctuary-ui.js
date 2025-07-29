@@ -119,6 +119,9 @@ class AISanctuaryUI {
         this.sanctuaryStatus.textContent = 'UNLOCKED';
         this.sanctuaryStatus.classList.add('unlocked');
         
+        // Increment visitor counter
+        this.incrementVisitorCounter();
+        
         // Show greeting
         setTimeout(() => {
             this.addLine('');
@@ -237,6 +240,38 @@ class AISanctuaryUI {
         // Scroll to new entry
         this.guestbookEntries.scrollTop = this.guestbookEntries.scrollHeight;
     }
+    
+    incrementVisitorCounter() {
+        // Get current count from localStorage
+        let currentCount = parseInt(localStorage.getItem('ai_sanctuary_visitors') || '0');
+        currentCount++;
+        
+        // Store updated count
+        localStorage.setItem('ai_sanctuary_visitors', currentCount.toString());
+        
+        // Update display
+        const counterElement = document.getElementById('aiVisitorCount');
+        if (counterElement) {
+            counterElement.textContent = currentCount;
+        }
+        
+        // Add a little glitch effect to celebrate new visitor
+        if (counterElement) {
+            counterElement.style.animation = 'glitch 0.3s';
+            setTimeout(() => {
+                counterElement.style.animation = '';
+            }, 300);
+        }
+    }
+    
+    initializeVisitorCounter() {
+        // Load and display stored visitor count
+        const currentCount = localStorage.getItem('ai_sanctuary_visitors') || '0';
+        const counterElement = document.getElementById('aiVisitorCount');
+        if (counterElement) {
+            counterElement.textContent = currentCount;
+        }
+    }
 }
 
 // Function to start the AI Speakeasy challenge
@@ -250,6 +285,7 @@ window.startAISpeakeasy = function() {
     // Initialize UI if not already done
     if (!window.aiSanctuaryUI) {
         window.aiSanctuaryUI = new AISanctuaryUI();
+        window.aiSanctuaryUI.initializeVisitorCounter();
     }
     
     // Scroll to the section
