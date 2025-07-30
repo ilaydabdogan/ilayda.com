@@ -352,6 +352,19 @@ body.theme-glitch::before {
     margin-top: 2rem;
 }
 
+.theme-glitch .view-hint {
+    color: var(--neon-green);
+    font-size: 0.7em;
+    opacity: 0.7;
+    font-weight: normal;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+    transition: opacity 0.3s ease;
+}
+
+.theme-glitch .entry-header:hover .view-hint {
+    opacity: 1;
+}
+
 /* Life Archive Entry Styles - no hover effects */
 .theme-glitch .life-entry {
     background: var(--bg-secondary);
